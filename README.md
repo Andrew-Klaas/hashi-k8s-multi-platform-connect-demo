@@ -74,8 +74,11 @@ $ kubectl get svc k8s-transit-app
 NAME              TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)          AGE
 k8s-transit-app   LoadBalancer   10.15.240.78   34.66.30.252   5000:30036/TCP   2m53s
 ```
-## Blog Post Walk Through
-LINK: 
+For example:
+```bash
+http://34.68.19.26:5000
+```
+ 
 
 
 ## Teardown
