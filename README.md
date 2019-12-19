@@ -6,7 +6,7 @@ gcloud git curl jq kubectl(v1.11 or greater) helm(v2.14.3 or greater) consul vau
 ````
 
 ## Setup
-0. Set your GCP creds. I've done mine via environment variables
+0. Set your GCP creds.
 https://www.terraform.io/docs/providers/google/provider_reference.html
 
 If using TFE, use the GOOGLE_CREDENTIALS environment variable. Also the JSON credential data is required to all be on one line. Just modify in a text editor before adding to TFE.
@@ -19,22 +19,31 @@ GOOGLE_CREDENTIALS: {"type": "service_account","project_id": "klaas","private_ke
 
 2. plan/apply
 ```bash
+#Make sure to set your GCP creds
 terraform init;
 terraform plan; 
 terraform apply --auto-approve;
 ```
 
-3. Go into GCP console and copy the command for  "connecting" to your k8s cluster. The command is shown in your Terraform output.
+3. Go into GCP console and copy the command for  "connecting" to your k8s cluster. The command is also shown in your Terraform output.
 ```bash
 
 Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
 
 Outputs:
 
-gcloud_connect_command = gcloud container clusters get-credentials aklaas-connect-dev --zone us-central1-c --project andrew-klaas
+gcloud_connect_command = gcloud container clusters get-credentials aklaas-connect --zone us-central1-c --project andrew-klaas
 ip = 35.238.16.160
 private_ip = 10.128.0.36
+
 ```
+Run the command
+```bash
+gcloud container clusters get-credentials aklaas-connect --zone us-central1-c --project andrew-klaas
+```
+
+
+
 
 4. Deploy Consul/Vault/Mariadb/Python-transit-app. This takes a few minutes. We also need to pass the "private_ip" variable to the script. Grab the variable from the Terraform output. This allows the K8s Consul "datacenter" to wan join the VM consul "datacenter".
 ```bash
