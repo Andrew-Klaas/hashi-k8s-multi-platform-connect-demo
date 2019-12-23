@@ -5,6 +5,24 @@ Software requirements (on your laptop, or you can also use the vagrant VM below)
 gcloud git curl jq kubectl(v1.11 or greater) helm(v2.14.3 or greater) consul vault
 ````
 
+
+## Vagrant (Optional)
+You can use the vagrantfile to boot up a VM with all required software installed
+
+0. Create VM
+```bash
+vagrant up
+vagrant ssh
+```
+1. Generate ssh key and setup gcloud
+```bash
+cd /vagrant
+ssh-keygen
+gcloud auth login
+```
+
+Proceed to setup.
+
 ## Setup
 0. Set your GCP creds.
 https://www.terraform.io/docs/providers/google/provider_reference.html
@@ -87,19 +105,3 @@ demo/cleanup.sh
 ```
 
 
-## Vagrant
-You can use the vagrantfile to boot up a VM with all required software installed
-
-0. Create VM
-```bash
-vagrant up
-vagrant ssh
-```
-1. Generate ssh key and setup gcloud
-```bash
-cd /vagrant
-ssh-keygen
-gcloud auth login
-```
-
-2. follow the steps as above
