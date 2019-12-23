@@ -83,6 +83,28 @@ http://localhost:8500
 http://localhost:8200
 ```
 
+Use kubectl if you'd like to inspect the deployed pods
+
+```bas
+$ kubectl get pods
+NAME                                                              READY   STATUS    RESTARTS   AGE
+consul-consul-connect-injector-webhook-deployment-557d4cb7wtwsn   1/1     Running   0          4m59s
+consul-consul-hgc5m                                               1/1     Running   0          4m59s
+consul-consul-hrxl5                                               1/1     Running   0          4m59s
+consul-consul-mesh-gateway-68c66f5569-hd9rj                       1/1     Running   3          4m59s
+consul-consul-mesh-gateway-68c66f5569-jsmd8                       1/1     Running   3          4m59s
+consul-consul-s5znp                                               1/1     Running   0          4m59s
+consul-consul-server-0                                            1/1     Running   0          4m59s
+consul-consul-server-1                                            1/1     Running   0          4m58s
+consul-consul-server-2                                            1/1     Running   0          4m58s
+consul-consul-sync-catalog-6699948bb5-krc2c                       1/1     Running   0          4m59s
+k8s-transit-app-7f54c77669-2ghfx                                  2/2     Running   1          61s
+k8s-transit-app-7f54c77669-j9n9w                                  2/2     Running   1          61s
+k8s-transit-app-7f54c77669-xw5n4                                  2/2     Running   1          61s
+mariadb-0                                                         2/2     Running   0          3m50s
+vault-0                                                           2/2     Running   0          2m57s
+```
+
 ## Python Encryption as a Service App
 Once the demo script completes use the following command to retrieve the public IP of the python service. Use port 5000 in your browser.
 
